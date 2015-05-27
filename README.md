@@ -27,19 +27,23 @@ Supported targets:
 * Clone the repository or download an archive and un-compress somewhere: */opt/nix_bsd_mac_inventory/* for example.
 * cd into the new directory and pip install:
 
+	```Bash
 	cd /opt
 	git clone https://github.com/tjbirkett/nix_bsd_mac_inventory.git
 	cd nix_bsd_mac_inventory
 	pip install -r requirements.txt
+	```
 	
 * Alternatively (and recommended) if you want everything contained within the application folder you can use virtualenv to create a python environment within the folder. This makes it easier if you're planning on packaging up the application to create a binary package.
 
+	```Bash
 	cd /opt
 	git clone https://github.com/tjbirkett/nix_bsd_mac_inventory.git
 	cd nix_bsd_mac_inventory
 	virtualenv .
 	./bin/pip install -r requirements.txt
-	
+	```
+
 * Then use the python binary within the bin directory to run main.py or starter.py
 
 	
