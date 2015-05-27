@@ -41,6 +41,7 @@ def get_settings():
     get_os_details       = cc.getboolean('options', 'get_os_details')
     get_cpu_info         = cc.getboolean('options', 'get_cpu_info')
     get_memory_info      = cc.getboolean('options', 'get_memory_info')
+    get_uptime           = cc.getboolean('options', 'get_uptime')
     ignore_domain        = cc.getboolean('options', 'ignore_domain')
     upload_ipv6          = cc.getboolean('options', 'upload_ipv6')
     debug                = cc.getboolean('options', 'debug')
@@ -49,7 +50,7 @@ def get_settings():
     
     return   mod_linux, mod_solaris,  mod_mac, mod_bsd, mod_aix, base_url, username, secret, targets, \
                 use_key_file, key_file, credentials,  ssh_port, timeout, get_serial_info, \
-                get_hardware_info, get_os_details, get_cpu_info, get_memory_info, \
+                get_hardware_info, get_os_details, get_cpu_info, get_memory_info, get_uptime, \
                 ignore_domain, upload_ipv6, debug, threads,  dict_output
 
 caller = os.path.basename(sys._getframe().f_back.f_code.co_filename)
@@ -59,7 +60,9 @@ if caller == 'main.py':
     USERNAME, SECRET, TARGETS, USE_KEY_FILE, KEY_FILE, \
     CREDENTIALS, SSH_PORT, TIMEOUT, GET_SERIAL_INFO, \
     GET_HARDWARE_INFO, GET_OS_DETAILS, GET_CPU_INFO, \
-    GET_MEMORY_INFO, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG, THREADS, DICT_OUTPUT = get_settings()
+    GET_MEMORY_INFO, GET_UPTIME, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG, THREADS, \
+    DICT_OUTPUT = get_settings()
+
     SSH_PORT        = int(SSH_PORT)
     TIMEOUT         = int(TIMEOUT)
 
@@ -69,7 +72,9 @@ else:
         USERNAME, SECRET, xTARGETS, xUSE_KEY_FILE, xKEY_FILE, \
         xCREDENTIALS, SSH_PORT, TIMEOUT, GET_SERIAL_INFO, \
         GET_HARDWARE_INFO, GET_OS_DETAILS, GET_CPU_INFO, \
-        GET_MEMORY_INFO, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG, THREADS, DICT_OUTPUT = get_settings()
+        GET_MEMORY_INFO, GET_UPTIME, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG, THREADS, \
+        DICT_OUTPUT = get_settings()
+
         SSH_PORT        = int(SSH_PORT)
         TIMEOUT         = int(TIMEOUT)
         TARGETS         = sys.argv[1].strip()

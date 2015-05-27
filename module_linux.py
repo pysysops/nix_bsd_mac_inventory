@@ -5,7 +5,7 @@ import math
 class GetLinuxData():
     def __init__(self, BASE_URL, USERNAME, SECRET,  ip, SSH_PORT, TIMEOUT, usr, pwd, USE_KEY_FILE, KEY_FILE, \
                         GET_SERIAL_INFO, GET_HARDWARE_INFO, GET_OS_DETAILS, \
-                        GET_CPU_INFO, GET_MEMORY_INFO, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG):
+                        GET_CPU_INFO, GET_MEMORY_INFO, GET_UPTIME, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG):
         
         self.D42_API_URL     = BASE_URL
         self.D42_USERNAME  = USERNAME
@@ -21,7 +21,8 @@ class GetLinuxData():
         self.GET_HARDWARE_INFO  = GET_HARDWARE_INFO
         self.GET_OS_DETAILS        = GET_OS_DETAILS
         self.GET_CPU_INFO           = GET_CPU_INFO
-        self.GET_MEMORY_INFO     = GET_MEMORY_INFO 
+        self.GET_MEMORY_INFO     = GET_MEMORY_INFO
+        self.GET_UPTIME          = GET_UPTIME
         self.IGNORE_DOMAIN         = IGNORE_DOMAIN       
         self.UPLOAD_IPV6             = UPLOAD_IPV6
         self.DEBUG                       = DEBUG
@@ -188,7 +189,19 @@ class GetLinuxData():
                 else:
                     if self.DEBUG:
                         print data_err
-            
+
+            if self.GET_UPTIME:           
+                stdin, stdout, stderr = self.ssh.exec_command("cat /proc/uptime")
+                data_err = stderr.readlines()
+                data_out = stdout.readlines()
+                #print 'UPTIME : %s' % data_out 
+                if not data_err:
+                    uptime = float(data_out[0].split()[0].rstrip())
+                    self.devargs.update({'uptime': uptime})
+                else:
+                    if self.DEBUG:
+                        print data_err
+
             if self.GET_CPU_INFO:
                 stdin, stdout, stderr = self.ssh.exec_command("cat /proc/cpuinfo")
                 data_err = stderr.readlines()

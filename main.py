@@ -33,7 +33,7 @@ def get_linux_data(ip, usr, pwd):
         lock.release()
         linux = ml.GetLinuxData(BASE_URL, USERNAME, SECRET, ip, SSH_PORT, TIMEOUT,  usr, pwd, USE_KEY_FILE, KEY_FILE, \
                                     GET_SERIAL_INFO, GET_HARDWARE_INFO, GET_OS_DETAILS, \
-                                    GET_CPU_INFO, GET_MEMORY_INFO, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG)
+                                    GET_CPU_INFO, GET_MEMORY_INFO, GET_UPTIME, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG)
         
         data = linux.main()
         if DEBUG:
