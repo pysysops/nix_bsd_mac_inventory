@@ -40,14 +40,14 @@ class Rest():
         
     def post_device(self, data):
         if DRY_RUN == False:
-            url = self.base_url+'/api/device/'
+            url = self.base_url+'/api/1.0/device/'
             msg =  '\r\nPosting data to %s ' % url
             print msg
             self.uploader(data, url)
 
     def post_ip(self, data):
         if DRY_RUN == False:
-            url = self.base_url+'/api/ip/'
+            url = self.base_url+'/api/1.0/ip/'
             msg =  '\r\nPosting IP data to %s ' % url
             print msg
             self.uploader(data, url)
