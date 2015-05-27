@@ -2,6 +2,7 @@
 import sys
 import requests
 import base64
+import json
 
 try:
     requests.packages.urllib3.disable_warnings()
@@ -24,10 +25,10 @@ class Rest():
             payload = data
             headers = {
                 'Authorization': 'Basic ' + base64.b64encode(self.username + ':' + self.password),
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             }
 
-            r = requests.post(url, data=payload, headers=headers, verify=False)
+            r = requests.post(url, data=json.dumps(payload), headers=headers, verify=False)
             msg =  unicode(payload)
             if self.debug:
                 print msg
