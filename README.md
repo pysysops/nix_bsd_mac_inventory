@@ -1,7 +1,6 @@
-[Device42](http://www.device42.com/) is a comprehensive data center inventory management and IP Address management software 
-that integrates centralized password management, impact charts and applications mappings with IT asset management.
+This repository contains sample script to take information from different *nix operating systems and send it to [Device42](http://www.device42.com/) appliance using the REST APIs.
 
-This repository contains sample script to take information from different *nix operating systems and send it to Device42 appliance using the REST APIs.
+It has been forked and several modifications made to allow the scripts to be used to post inventory information to a generic RESTful(ish) API. 
 
 Supported targets:
 
@@ -23,6 +22,26 @@ Supported targets:
 -----------------------------
 * Script runs on any OS capable of running Python 2.7.x
 	
+### Installation
+-----------------------------
+* Clone the repository or download an archive and un-compress somewhere: */opt/nix_bsd_mac_inventory/* for example.
+* cd into the new directory and pip install:
+
+	cd /opt
+	git clone https://github.com/tjbirkett/nix_bsd_mac_inventory.git
+	cd nix_bsd_mac_inventory
+	pip install -r requirements.txt
+	
+* Alternatively (and recommended) if you want everything contained within the application folder you can use virtualenv to create a python environment within the folder. This makes it easier if you're planning on packaging up the application to create a binary package.
+
+	cd /opt
+	git clone https://github.com/tjbirkett/nix_bsd_mac_inventory.git
+	cd nix_bsd_mac_inventory
+	virtualenv .
+	./bin/pip install -r requirements.txt
+	
+* Then use the python binary within the bin directory to run main.py or starter.py
+
 	
 ### Usage
 -----------------------------
