@@ -5,27 +5,30 @@ import math
 class GetLinuxData():
     def __init__(self, BASE_URL, USERNAME, SECRET,  ip, SSH_PORT, TIMEOUT, usr, pwd, USE_KEY_FILE, KEY_FILE, \
                         GET_SERIAL_INFO, GET_HARDWARE_INFO, GET_OS_DETAILS, \
-                        GET_CPU_INFO, GET_MEMORY_INFO, GET_UPTIME, IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG):
+                        GET_CPU_INFO, GET_MEMORY_INFO, GET_UPTIME, GET_NET_LISTEN, GET_NET_CONNECTIONS, \
+                        IGNORE_DOMAIN, UPLOAD_IPV6, DEBUG):
         
-        self.D42_API_URL     = BASE_URL
-        self.D42_USERNAME  = USERNAME
-        self.D42_PASSWORD = SECRET
-        self.machine_name   = ip
-        self.port                 = int(SSH_PORT)
+        self.D42_API_URL         = BASE_URL
+        self.D42_USERNAME        = USERNAME
+        self.D42_PASSWORD        = SECRET
+        self.machine_name        = ip
+        self.port                = int(SSH_PORT)
         self.timeout             = TIMEOUT
-        self.username          = usr
-        self.password           = pwd
-        self.USE_KEY_FILE            = USE_KEY_FILE
-        self.KEY_FILE                   = KEY_FILE
-        self.GET_SERIAL_INFO       = GET_SERIAL_INFO
-        self.GET_HARDWARE_INFO  = GET_HARDWARE_INFO
-        self.GET_OS_DETAILS        = GET_OS_DETAILS
-        self.GET_CPU_INFO           = GET_CPU_INFO
+        self.username            = usr
+        self.password            = pwd
+        self.USE_KEY_FILE        = USE_KEY_FILE
+        self.KEY_FILE            = KEY_FILE
+        self.GET_SERIAL_INFO     = GET_SERIAL_INFO
+        self.GET_HARDWARE_INFO   = GET_HARDWARE_INFO
+        self.GET_OS_DETAILS      = GET_OS_DETAILS
+        self.GET_CPU_INFO        = GET_CPU_INFO
         self.GET_MEMORY_INFO     = GET_MEMORY_INFO
         self.GET_UPTIME          = GET_UPTIME
-        self.IGNORE_DOMAIN         = IGNORE_DOMAIN       
-        self.UPLOAD_IPV6             = UPLOAD_IPV6
-        self.DEBUG                       = DEBUG
+        self.GET_NET_LISTEN      = GET_NET_LISTEN
+        self.GET_NET_CONNECTIONS = GET_NET_CONNECTIONS
+        self.IGNORE_DOMAIN       = IGNORE_DOMAIN       
+        self.UPLOAD_IPV6         = UPLOAD_IPV6
+        self.DEBUG               = DEBUG
         
         self.ssh = paramiko.SSHClient()
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())

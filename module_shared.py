@@ -42,6 +42,8 @@ def get_settings():
     get_cpu_info         = cc.getboolean('options', 'get_cpu_info')
     get_memory_info      = cc.getboolean('options', 'get_memory_info')
     get_uptime           = cc.getboolean('options', 'get_uptime')
+    get_net_listen       = cc.getboolean('options', 'get_net_listen')
+    get_net_connections  = cc.getboolean('options', 'get_net_connections')
     ignore_domain        = cc.getboolean('options', 'ignore_domain')
     upload_ipv6          = cc.getboolean('options', 'upload_ipv6')
     debug                = cc.getboolean('options', 'debug')
